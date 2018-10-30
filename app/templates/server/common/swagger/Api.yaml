@@ -1,9 +1,9 @@
 swagger: "2.0"
 info:
-  version: <%= version %>
-  title: <%= title %>
-  description: <%= description %>
-basePath: <%= apiRoot %>
+  version: "<%=version%>"
+  title: <%=title%>
+  description: <%=description%>
+basePath: <%=apiRoot%>
 tags:
   - name: Examples
     description: Simple example endpoints
@@ -67,7 +67,7 @@ paths:
         404:
           description: Example not found
 
-  /spec:
+  /api-doc:
     get:
       tags:
         - Specification

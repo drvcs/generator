@@ -9,6 +9,7 @@
     "mocha": true
   },
   "rules": {
+    "linebreak-style": 0,
     "no-underscore-dangle": 0,
     "class-methods-use-this": ["off"],
     "no-use-before-define": ["error", { 

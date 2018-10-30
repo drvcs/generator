@@ -1,14 +1,29 @@
-# generator-express-no-stress
+# generator-colco-microservice
 
-![](https://img.shields.io/badge/status-stable-green.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/56c006ccc44c47f49d12b6b35fcf35da)](https://www.codacy.com/app/cdimascio/generator-express-no-stress?utm_source=github.com&utm_medium=referral&utm_content=cdimascio/generator-express-no-stress&utm_campaign=Badge_Grade) ![](https://img.shields.io/badge/license-MIT-blue.svg)
+Generador de proyecto microservicio para ColComercio
 
-Create awesome [Express.js](www.expressjs.com) applications with best of breed tech including ES.next via [Babel.js](https://babeljs.io/), structured logging with [Pino](https://github.com/pinojs/pino), API validation and interactive documentation via [Swagger](http://swagger.io/), environment based config with [dotenv](https://github.com/motdotla/dotenv), and linting with [ESLint](http://eslint.org/).
+Este generador -basado en el desarrollo de Carmine DiMascio (https://www.npmjs.com/package/generator-express-no-stress)- permite crear una base de desarrollo para los proyectos microservicio en ColComercio.
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/cdimascio/generator-express-no-stress/master/assets/express-no-stress-logo-v.png">
-</p>
+El proyecto generado adopta las siguientes funcionalidades:
 
-generator-express-no-stress gets you up and running in seconds. It's ridiculously easy to configure. Heck, just take the defaults. Start it. Write code.
+- [Express.js](www.expressjs.com) - framework de publicación HTTP para Node.js
+- [Swagger](http://swagger.io/) - Permite que la validación de la mensajería JSON automaticamente se compruebe contra la definición de contrato **OpenAPI (Swagger)** obligatorio para los API que se construyan en ColComercio
+- [SwaggerUI](http://swagger.io/) - Publica la documentación swagger  hacia usuario del microservicios
+- [Babel.js](https://babeljs.io/) - Permite utilizar una sintaxis moderna de JS
+- [Pino](https://github.com/pinojs/pino) - Plataforma de logs que se acoplará a las capacidades de LOG de OpenShift
+- [dotenv](https://github.com/motdotla/dotenv) - Carga los valores de parametrización por ambiente del archivo **.env:**
+- [ESLint](http://eslint.org/) - Ayuda a mejora el estilo de escritura de JS utilizando las definiciones basadas por AirBnB [Airbnb](https://github.com/airbnb/javascript)
+	- [Prettier](https://github.com/prettier/prettier) - Prettier is an opinionated code formatter
+
+El proyecto generado facilita las siguientes capacidades en tiempo de desarrollo:  
+- [nodemon](http://nodemon.org/) - Permite que el desarrollador 
+- [mocha]
+
+
+
+
+
+generator-colco-microservice gets you up and running in seconds. It's ridiculously easy to configure. Heck, just take the defaults. Start it. Write code.
 
 This generator scaffolds a fully functioning REST API server, complete with interactive documentation, API validation, structured logging, environment driven config, and more. Simply run the generator and smile :-D
 
@@ -19,7 +34,7 @@ This generator scaffolds a fully functioning REST API server, complete with inte
 _Requires Node 8 or greater_
 
 ```shell
-npm install -g yo generator-express-no-stress
+npm install -g yo generator-colco-microservice
 ```
 
 - See [here](#usage-cli) for use with Yarn and/or Docker
@@ -28,7 +43,7 @@ npm install -g yo generator-express-no-stress
 ## Scaffold
 
 ```shell
-yo express-no-stress myapp
+yo colco-microservice myapp
 cd myapp
 ```
 
@@ -75,7 +90,7 @@ npm run test:debug
 ## Usage: CLI
 
 ```shell
-yo express-no-stress [appname] [--yarn] [--docker]
+yo colco-microservice [appname] [--yarn] [--docker]
 ```
 
 | Option     | default | Description                                                                |
@@ -103,60 +118,30 @@ The sections below describe all usage options available once the project is gene
 
 ### Debug in VSCode
 
-Add these [contents](https://github.com/cdimascio/generator-express-no-stress/blob/next/assets/.vscode/launch.json) to your `.vscode/launch.json` file
+Add these [contents](https://github.com/cdimascio/generator-colco-microservice/blob/next/assets/.vscode/launch.json) to your `.vscode/launch.json` file
 
-### Deploy to the Cloud
+### Despliegue hacia OpenShift
 
-e.g. CloudFoundry
-
-```
-cf push myapp
-```
-
-### Use Yarn
+Despliegue a entorno Desarrollo
 
 ```
-# scaffold
-yo express-no-stress myapp --yarn
-
-# start
-cd myapp
-npm start
+oc ???? push myapp
 ```
+
 
 ---
 
-## What you get!
-
-- [Express.js](www.expressjs.com) - Fast, unopinionated
-  , minimalist web framework for Node.js
-- [Babel.js](https://babeljs.io/) - Use new syntax, right now without waiting for support
-- [Pino](https://github.com/pinojs/pino) - Extremely fast node.js logger, inspired by Bunyan. It also includes a shell utility to pretty-print its log files
-- [dotenv](https://github.com/motdotla/dotenv) - Loads environment variables from .env for nodejs projects
-- [ESLint](http://eslint.org/) - a pluggable linting utility for JavaScript and JSX
-
-	Choose from the following ESLint lint rules:
-	- [Airbnb](https://github.com/airbnb/javascript) - A mostly reasonable approach to JavaScript
-	- [Prettier](https://github.com/prettier/prettier) - Prettier is an opinionated code formatter
-- [Swagger](http://swagger.io/) - is a simple yet powerful representation of your RESTful API
-- [SwaggerUI](http://swagger.io/) - dynamically generate beautiful documentation and sandbox from a Swagger-compliant API
 
 ### API Validation
 
-Simply describe your APIs with Swagger and automagically get for free:
+La validación se realiza de forma automática contra las definiciones del Swagger 2.0:
 
 - Interactive documentation
 - API validation
 
-#### Interactive API Doc
+????
 
-![](https://raw.githubusercontent.com/cdimascio/generator-express-no-stress/master/assets/interactive-doc1.png)
 
-#### API Validation!
-
-Oops! I the API caller forgot to pass a `name` field, no stress, we've got this!
-
-![](https://raw.githubusercontent.com/cdimascio/generator-express-no-stress/master/assets/api-validation.png)
 
 ### Structured Logging
 
@@ -164,13 +149,13 @@ Structured logging out of the box!
 
 #### raw
 
-![](https://raw.githubusercontent.com/cdimascio/generator-express-no-stress/master/assets/logging-raw.png)
+![](https://raw.githubusercontent.com/cdimascio/generator-colco-microservice/master/assets/logging-raw.png)
 
 #### pretty
 
 Structured logging pretty printed by default - great for dev!
 
-![](https://raw.githubusercontent.com/cdimascio/generator-express-no-stress/master/assets/logging-pretty.png)
+![](https://raw.githubusercontent.com/cdimascio/generator-colco-microservice/master/assets/logging-pretty.png)
 
 ### API Validation Example
 
@@ -264,11 +249,11 @@ paths:
 
 #### Invoke a POST request via the Interactive doc
 
-![](https://raw.githubusercontent.com/cdimascio/generator-express-no-stress/master/assets/interactive-doc.png)
+![](https://raw.githubusercontent.com/cdimascio/generator-colco-microservice/master/assets/interactive-doc.png)
 
 ### Linting
 
-express-no-stress uses [ESLint](http://eslint.org/) and provides two choices, Airbnb or Prettier.
+colco-microservice uses [ESLint](http://eslint.org/) and provides two choices, Airbnb or Prettier.
 
 To add your own ESLint customizations, edit`.eslintrc.json`.
 
@@ -278,10 +263,10 @@ Note that the Airbnb variant provides a slightly modified Airbnb [base](https://
 
 **Q**: What about Node.js 6.x?
 
-**A**:`generator-express-no-stress` now uses Babel 7. Babel 7 tooling requires Node.js 8 or greater. To use `generator-express-no-stress` with Node.js 6, install version 3.5.4.
+**A**:`generator-colco-microservice` now uses Babel 7. Babel 7 tooling requires Node.js 8 or greater. To use `generator-colco-microservice` with Node.js 6, install version 3.5.4.
 
 ```shell
-npm install -g yo generator-express-no-stress@3.5.4
+npm install -g yo generator-colco-microservice@3.5.4
 ```
 
 ## License

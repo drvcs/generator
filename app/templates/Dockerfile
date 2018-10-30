@@ -1,11 +1,22 @@
-FROM node:8.4
+FROM node:alpine
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+COPY . /var/app
 
-COPY . /usr/src/app
-RUN npm install
+WORKDIR /var/app
 
-EXPOSE 3000
+ENV TZ=America/Bogota
+ENV NODE_ENV=production
 
-CMD [ "npm", "start" ]
+RUN npm install 
+
+## Original de template ck-template
+# 
+# npm install --unsafe-perm || \
+#  ((if [ -f npm-debug.log ]; then \ 
+#                cat npm-debug.log; \
+#   fi) && false)
+
+CMD ["npm","start"]
+
+
+

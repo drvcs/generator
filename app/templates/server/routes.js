@@ -1,5 +1,5 @@
-import examplesRouter from './api/controllers/examples/router';
+import ckrouter from './api/controllers/ck/router';
 
 export default function routes(app) {
-  app.use('<%= apiRoot %>/examples', examplesRouter);
+  app.use('<%=apiRoot%>', ckrouter);
 }

@@ -1,18 +1,19 @@
 {
-  "name": "generator-express-no-stress",
-  "version": "5.1.0",
-  "description": "Awesome APIs with ExpressJS and Swagger.",
+  "name": "generator-colco-microservice-IMPLEMENTED",
+  "version": "1.0.0",
+  "description": "Generador ColComercio con ExpressJS y validacion por Swagger.",
   "main": "app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Carmine DiMascio <cdimascio@gmail.com> (https://github.com/cdimascio)",
+  "author": "Drey@vc-soft.com sobre generador creado por Carmine DiMascio <cdimascio@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cdimascio/generator-express-no-stress"
+    "url": "https://github.com/drvcs/generator-colco-microservice"
   },
   "license": "MIT",
   "dependencies": {
+    "js-yaml": "^3.12.0",
     "yeoman-generator": "^2.0.5"
   },
   "devDependencies": {},
