@@ -13,7 +13,7 @@ describe('Examples', () => {
         expect(r.body)
           .to.be.an.an('array')
           .of.length(2);
-      }));
+    }));
 
   it('should add a new example', () =>
     request(Server)
@@ -25,7 +25,7 @@ describe('Examples', () => {
           .to.be.an.an('object')
           .that.has.property('name')
           .equal('test');
-      }));
+    }));
 
   it('should get an example by id', () =>
     request(Server)
@@ -36,5 +36,5 @@ describe('Examples', () => {
           .to.be.an.an('object')
           .that.has.property('name')
           .equal('test');
-      }));
+    }));
 });

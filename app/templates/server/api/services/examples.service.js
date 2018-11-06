@@ -13,6 +13,7 @@ class ExamplesService {
   }
 
   create(name) {
+    l.info(`${this.constructor.name}.create()`);
     return db.insert(name);
   }
 }

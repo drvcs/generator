@@ -53,14 +53,13 @@ module.exports = class extends Generator {
 
     return this.prompt(prompts).then(r => {
       this.swaggerPath = r.swaggerPath ? r.swaggerPath : this.swaggerPath;
-
       const source_swgp_path = this.swaggerPath;
-      console.log('#######################################: ',source_swgp_path);    
+      
       if (source_swgp_path.includes('.yaml')) {  
         if (fs.existsSync(source_swgp_path)) {
           const rootBasePath = yaml.safeLoad(fs.readFileSync(source_swgp_path, 'utf8'));
           this.apiRoot = rootBasePath.basePath;
-          console.log('PATH BASE : ', this.apiRoot);    
+          console.log('Base Path: ', this.apiRoot);    
         }
       }  
 
@@ -102,7 +101,6 @@ module.exports = class extends Generator {
           'gitignore',
           '.dockerignore',
           'Dockerfile',
-          'docker-compose.yml',
         ];
 
         const copyOpts = this.docker
@@ -161,16 +159,12 @@ module.exports = class extends Generator {
   end() {
     const source_swgp_path = this.swaggerPath;    
     const dest_swg_path = this.destinationPath(`${this.name}/server/common/swagger/Api.yaml`);             
-    
-//    console.log('PATH ORIGEN ',source_swgp_path, fs.existsSync(source_swgp_path));
-//    console.log('PATH DESTINO ',dest_swg_path, fs.existsSync(dest_swg_path));
 
     if (source_swgp_path.includes('.yaml')) {  
       if (fs.existsSync(source_swgp_path)) {
         fs.copyFileSync(source_swgp_path, dest_swg_path);
       }
     }
-
 
     if (this.useYarn) {
       this.spawnCommandSync('yarn', ['dev']);

@@ -37,6 +37,7 @@ export default function (app, routes) {
       mw.CORS(),
       mw.validateRequest());
 
+      
     app.use('/mock', mw.mock());  
 
     // Error handler to display the validation error as HTML

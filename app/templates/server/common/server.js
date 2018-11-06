@@ -8,7 +8,6 @@ import cookieParser from 'cookie-parser';
 import swaggerify from './swagger';
 import l from './logger';
 
-
 const app = new Express();
 
 export default class ExpressServer {
@@ -39,5 +38,4 @@ export default class ExpressServer {
     https.createServer(options, app).listen(port, welcome(port));
     return app;
   }
-
 }
